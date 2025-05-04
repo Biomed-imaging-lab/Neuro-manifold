@@ -13,20 +13,16 @@ class DataManager:
             self.__data[tag].append(np.array(zarr.open(path, mode='r')["C"]))
 
 
-    #todo переработать функцию для оптимизации памяти
     def get_time_split_data(self, time_sample_size, average_samples=False):
         data_map = {}
         for tag, data_list in self.__data.items():
             for data in data_list:
                 if average_samples:
-                    # Для усреднения: количество столбцов уменьшается в time_sample_size раз
                     split_data = np.empty((data.shape[0], 0))
                     for i in range(time_sample_size, data.shape[1], time_sample_size):
-                        # Берем среднее по временному окну
                         data_sample = np.mean(data[:, i - time_sample_size : i], axis=1, keepdims=True)
                         split_data = np.append(split_data, data_sample, axis=1)
                 else:
-                    # Оригинальный вариант с развертыванием временного окна
                     split_data = np.empty((data.shape[0] * time_sample_size, 0))
                     for i in range(time_sample_size, data.shape[1], time_sample_size):
                         data_sample = np.expand_dims(data[:, i - time_sample_size : i].ravel(), axis=1)
