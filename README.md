@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Neuro-manifold
-=======
-# neuronal_activity_estimation_with_manifolds
->>>>>>> a9cc782 (Initial commit)
-=======
 # Neuronal Activity Estimation with Manifolds
 
 This repository contains the code and analysis pipeline for the research presented in the paper: "AI-powered mice behavior tracking and its application for neuronal manifold analysis based on hippocampal ensembles activity in Alzheimer’s disease mice model"
