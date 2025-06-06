@@ -39,4 +39,3 @@ The study investigates the use of manifold learning techniques to analyze neural
     ```bash
     jupyter notebook manifold_with_tracking.ipynb
     ```
->>>>>>> e9f1677 (add readme)
